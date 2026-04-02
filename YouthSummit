@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>World Bank Youth Summit 2025 — Agenda Planner</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --blue: #185FA5;
+    --blue-light: #deeaf7;
+    --blue-mid: #378ADD;
+    --teal: #0F6E56;
+    --teal-light: #d7f0e8;
+    --amber: #BA7517;
+    --amber-light: #faecd4;
+    --coral: #993C1D;
+    --pink: #993556;
+    --pink-light: #fce8f0;
+    --purple: #534AB7;
+    --purple-light: #eeedfd;
+    --text: #1a1a1a;
+    --text-muted: #666;
+    --text-light: #999;
+    --bg: #ffffff;
+    --bg-soft: #f7f7f5;
+    --bg-card: #ffffff;
+    --border: rgba(0,0,0,0.09);
+    --border-hover: rgba(0,0,0,0.18);
+    --shadow: 0 1px 4px rgba(0,0,0,0.07);
+    --shadow-md: 0 2px 12px rgba(0,0,0,0.1);
+    --radius: 10px;
+  }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: #f0ede8;
+    color: var(--text);
+    min-height: 100vh;
+    padding: 0;
+  }
+
+  /* ── Header ── */
+  .header {
+    background: linear-gradient(135deg, #003a6e 0%, #1a5fa5 60%, #2d8a6e 100%);
+    color: white;
+    padding: 2rem 2rem 1.5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .header::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    pointer-events: none;
+  }
+
+  .header-inner { position: relative; z-index: 1; }
+
+  .wbg-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.25);
+    border-radius: 20px;
+    padding: 4px 12px;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.9);
+    margin-bottom: 10px;
+  }
+
+  .header h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(22px, 4vw, 34px);
+    font-weight: 400;
+    line-height: 1.15;
+    color: white;
+    margin-bottom: 6px;
+  }
+
+  .header h1 em {
+    font-style: italic;
+    color: #7dd4b8;
+  }
+
+  .header-sub {
+    font-size: 13px;
+    color: rgba(255,255,255,0.75);
+    margin-bottom: 1.2rem;
+  }
+
+  .header-stats {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+  }
+
+  .hstat {
+    text-align: center;
+  }
+
+  .hstat-val {
+    font-size: 20px;
+    font-weight: 500;
+    color: white;
+    display: block;
+  }
+
+  .hstat-lbl {
+    font-size: 11px;
+    color: rgba(255,255,255,0.65);
+  }
+
+  /* ── App shell ── */
+  .app {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 1.5rem 1rem 3rem;
+  }
+
+  /* ── My agenda summary ── */
+  .agenda-summary {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 10px;
+    margin-bottom: 1.25rem;
+  }
+
+  .agenda-chip {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 10px 14px;
+    text-align: center;
+    box-shadow: var(--shadow);
+  }
+
+  .agenda-chip strong {
+    display: block;
+    font-size: 22px;
+    font-weight: 500;
+    color: var(--text);
+    line-height: 1;
+    margin-bottom: 3px;
+  }
+
+  .agenda-chip span {
+    font-size: 11px;
+    color: var(--text-muted);
+  }
+
+  /* ── Controls bar ── */
+  .controls {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 14px 16px;
+    margin-bottom: 1.25rem;
+    box-shadow: var(--shadow);
+  }
+
+  .controls-row {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .controls-row + .controls-row {
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid var(--border);
+  }
+
+  .controls-label {
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    white-space: nowrap;
+    min-width: 60px;
+  }
+
+  .pill-group {
+    display: flex;
+    gap: 4px;
+    background: var(--bg-soft);
+    padding: 3px;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+  }
+
+  .pill {
+    padding: 5px 13px;
+    font-size: 12px;
+    font-weight: 500;
+    border: none;
+    background: transparent;
+    color: var(--text-muted);
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.15s;
+    font-family: 'DM Sans', sans-serif;
+    white-space: nowrap;
+  }
+
+  .pill.active {
+    background: white;
+    color: var(--blue);
+    box-shadow: var(--shadow);
+  }
+
+  .pill.active-amber {
+    background: white;
+    color: var(--amber);
+    box-shadow: var(--shadow);
+  }
+
+  .tz-select-wrap {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    flex: 1;
+  }
+
+  .tz-select-wrap select {
+    font-size: 12px;
+    font-family: 'DM Sans', sans-serif;
+    padding: 6px 10px;
+    border-radius: 7px;
+    border: 1px solid var(--border);
+    background: var(--bg-soft);
+    color: var(--text);
+    cursor: pointer;
+    flex: 1;
+    min-width: 180px;
+    max-width: 320px;
+  }
+
+  .tz-current {
+    font-size: 12px;
+    color: var(--blue);
+    font-weight: 500;
+    background: var(--blue-light);
+    padding: 4px 10px;
+    border-radius: 5px;
+    white-space: nowrap;
+  }
+
+  /* ── Legend ── */
+  .legend {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 1rem;
+    padding: 0 2px;
+  }
+
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 11px;
+    color: var(--text-muted);
+  }
+
+  .legend-dot {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  /* ── Schedule ── */
+  .time-block { margin-bottom: 14px; }
+
+  .time-row-label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 6px;
+  }
+
+  .time-row-label .time-text {
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    white-space: nowrap;
+  }
+
+  .time-row-label .time-divider {
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  .sessions-at-time {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 8px;
+  }
+
+  /* ── Session card ── */
+  .session-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 12px 14px;
+    cursor: pointer;
+    transition: border-color 0.15s, box-shadow 0.15s, background 0.12s;
+    position: relative;
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    box-shadow: var(--shadow);
+  }
+
+  .session-card:hover {
+    border-color: var(--border-hover);
+    box-shadow: var(--shadow-md);
+    transform: translateY(-1px);
+  }
+
+  .session-card.saved {
+    background: #eef4fd;
+    border-color: #b5d4f4;
+  }
+
+  .session-card.type-plenary  { border-left: 3px solid var(--blue-mid); }
+  .session-card.type-keynote  { border-left: 3px solid var(--purple); }
+  .session-card.type-workshop { border-left: 3px solid var(--teal); }
+  .session-card.type-panel    { border-left: 3px solid var(--amber); }
+  .session-card.type-networking { border-left: 3px solid var(--pink); }
+
+  .card-check {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 1.5px solid #ccc;
+    flex-shrink: 0;
+    margin-top: 1px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.15s;
+    background: white;
+  }
+
+  .session-card.saved .card-check {
+    background: var(--blue);
+    border-color: var(--blue);
+  }
+
+  .check-svg { display: none; }
+  .session-card.saved .check-svg { display: block; }
+
+  .card-body { flex: 1; min-width: 0; }
+
+  .card-title {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text);
+    line-height: 1.35;
+    margin-bottom: 5px;
+  }
+
+  .card-meta {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-bottom: 3px;
+  }
+
+  .card-time {
+    font-size: 11px;
+    color: var(--text-muted);
+    font-weight: 500;
+  }
+
+  .card-badge {
+    font-size: 9px;
+    font-weight: 500;
+    padding: 2px 6px;
+    border-radius: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .badge-plenary    { background: #deeaf7; color: #185FA5; }
+  .badge-keynote    { background: #eeedfd; color: #534AB7; }
+  .badge-workshop   { background: #d7f0e8; color: #0F6E56; }
+  .badge-panel      { background: #faecd4; color: #BA7517; }
+  .badge-networking { background: #fce8f0; color: #993556; }
+
+  .card-room {
+    font-size: 10px;
+    color: var(--text-light);
+  }
+
+  .card-speaker {
+    font-size: 11px;
+    color: var(--text-muted);
+    font-style: italic;
+    margin-top: 3px;
+  }
+
+  .card-desc {
+    font-size: 11px;
+    color: var(--text-muted);
+    margin-top: 4px;
+    line-height: 1.5;
+  }
+
+  /* ── Empty state ── */
+  .empty {
+    text-align: center;
+    padding: 3.5rem 1rem;
+    color: var(--text-muted);
+  }
+
+  .empty-icon {
+    font-size: 36px;
+    margin-bottom: 10px;
+  }
+
+  .empty p { font-size: 14px; }
+
+  /* ── Footer ── */
+  .footer {
+    text-align: center;
+    padding: 1rem;
+    font-size: 11px;
+    color: var(--text-light);
+    border-top: 1px solid var(--border);
+    margin-top: 2rem;
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 600px) {
+    .header { padding: 1.5rem 1rem 1rem; }
+    .app { padding: 1rem 0.75rem 2rem; }
+    .sessions-at-time { grid-template-columns: 1fr; }
+    .controls-row { gap: 8px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-inner">
+    <div class="wbg-badge">&#127758; World Bank Group</div>
+    <h1>Youth Summit <em>2025</em></h1>
+    <p class="header-sub">June 11–12 &middot; Washington, DC &middot; Streamed Globally</p>
+    <div class="header-stats">
+      <div class="hstat"><span class="hstat-val">2</span><span class="hstat-lbl">Days</span></div>
+      <div class="hstat"><span class="hstat-val">30</span><span class="hstat-lbl">Sessions</span></div>
+      <div class="hstat"><span class="hstat-val">13+</span><span class="hstat-lbl">Timezones</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="app">
+
+  <!-- Summary -->
+  <div class="agenda-summary" id="summary-bar"></div>
+
+  <!-- Controls -->
+  <div class="controls">
+    <div class="controls-row">
+      <span class="controls-label">Day</span>
+      <div class="pill-group">
+        <button class="pill active" onclick="setDay(1)" id="day-btn-1">Day 1 · Jun 11</button>
+        <button class="pill" onclick="setDay(2)" id="day-btn-2">Day 2 · Jun 12</button>
+      </div>
+      <div style="flex:1"></div>
+      <div class="pill-group">
+        <button class="pill active" onclick="setView('all')" id="view-all">All sessions</button>
+        <button class="pill" onclick="setView('mine')" id="view-mine">My agenda</button>
+      </div>
+    </div>
+    <div class="controls-row">
+      <span class="controls-label">Timezone</span>
+      <div class="tz-select-wrap">
+        <select id="tz-picker" onchange="updateTz()">
+          <optgroup label="Americas">
+            <option value="-4">UTC-4 — Washington DC / New York (ET)</option>
+            <option value="-5">UTC-5 — Chicago / Mexico City (CT)</option>
+            <option value="-7">UTC-7 — Los Angeles / Vancouver (PT)</option>
+            <option value="-3">UTC-3 — São Paulo / Buenos Aires (BRT)</option>
+          </optgroup>
+          <optgroup label="Europe / Africa">
+            <option value="0">UTC+0 — London / Accra / Dakar (GMT/BST off-peak)</option>
+            <option value="1">UTC+1 — London BST / Paris / Lagos (WAT/CEST)</option>
+            <option value="2">UTC+2 — Cairo / Johannesburg / Harare (CAT/EET)</option>
+            <option value="3">UTC+3 — Nairobi / Addis Ababa / Riyadh (EAT/AST)</option>
+          </optgroup>
+          <optgroup label="Middle East / Asia">
+            <option value="4">UTC+4 — Dubai / Baku (GST)</option>
+            <option value="5">UTC+5 — Karachi / Tashkent (PKT)</option>
+            <option value="5.5">UTC+5:30 — New Delhi / Mumbai (IST)</option>
+            <option value="6">UTC+6 — Dhaka / Almaty (BST/ALMT)</option>
+            <option value="7">UTC+7 — Bangkok / Jakarta / Hanoi (ICT/WIB)</option>
+            <option value="8">UTC+8 — Beijing / Singapore / Manila (CST/SGT)</option>
+            <option value="9">UTC+9 — Tokyo / Seoul (JST/KST)</option>
+          </optgroup>
+          <optgroup label="Pacific">
+            <option value="10">UTC+10 — Sydney / Melbourne (AEST)</option>
+            <option value="12">UTC+12 — Auckland / Fiji (NZST)</option>
+          </optgroup>
+        </select>
+        <span class="tz-current" id="tz-badge">UTC-4 (ET)</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Legend -->
+  <div class="legend">
+    <div class="legend-item"><div class="legend-dot" style="background:#7F77DD"></div>Keynote</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#378ADD"></div>Plenary</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#1D9E75"></div>Workshop</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#EF9F27"></div>Panel</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#D4537E"></div>Networking</div>
+    <div class="legend-item" style="margin-left:auto"><span style="font-size:11px;color:#666">Tap a session to save it to your agenda</span></div>
+  </div>
+
+  <!-- Schedule -->
+  <div id="schedule"></div>
+
+  <div class="footer">World Bank Youth Summit 2025 &middot; Agenda subject to change</div>
+</div>
+
+<script>
+const SESSIONS = [
+  // Day 1
+  {id:1,  day:1, start:8*60,   end:9*60,   title:'Registration & Welcome Coffee',                         type:'networking', room:'Main Atrium',        speaker:'',                                    desc:'Collect your badge, meet fellow delegates, and explore the summit marketplace.'},
+  {id:2,  day:1, start:9*60,   end:9*60+45,title:'Opening Ceremony & WBG President Address',              type:'keynote',    room:'Preston Auditorium', speaker:'WBG President & Youth Ambassadors',   desc:'Official opening of the 2025 Youth Summit with remarks from senior leadership and youth representatives from every region.'},
+  {id:3,  day:1, start:9*60+45,end:10*60+30,title:'Keynote: The Future of Global Development — A Youth Lens',type:'keynote',room:'Preston Auditorium', speaker:'Keynote Speaker TBC',                desc:'Framing the opportunities and challenges facing the next generation of development leaders.'},
+  {id:4,  day:1, start:10*60+30,end:11*60,  title:'Morning Break & Networking',                           type:'networking', room:'Main Atrium',        speaker:'',                                    desc:''},
+  {id:5,  day:1, start:11*60,  end:12*60+15,title:'Panel: Climate Action — Youth at the Frontlines',      type:'panel',      room:'Preston Auditorium', speaker:'Youth Climate Leaders · ENV Team',    desc:'Young leaders from climate-vulnerable nations share innovations and demand accountability from global institutions.'},
+  {id:6,  day:1, start:11*60,  end:12*60+15,title:'Workshop: Policy Design for Inclusive Economies',      type:'workshop',   room:'Room MC2-800',       speaker:'WBG Poverty & Equity Team',          desc:'Hands-on session co-designing youth employment and social protection policies.'},
+  {id:7,  day:1, start:11*60,  end:12*60+15,title:'Workshop: Digital Innovation in Emerging Markets',     type:'workshop',   room:'Room MC2-850',       speaker:'Digital Development Team',           desc:'Explore how fintech, AI, and connectivity can accelerate development outcomes in low-income countries.'},
+  {id:8,  day:1, start:12*60+15,end:13*60+30,title:'Networking Lunch',                                    type:'networking', room:'Atrium Café',        speaker:'',                                    desc:'Hosted lunch with facilitated roundtable discussions grouped by region and theme.'},
+  {id:9,  day:1, start:13*60+30,end:14*60+45,title:'Plenary: Education & the Skills of Tomorrow',         type:'plenary',    room:'Preston Auditorium', speaker:'Human Capital Project · UNICEF',     desc:'Building education systems that prepare youth for a rapidly changing labour market and climate-impacted future.'},
+  {id:10, day:1, start:13*60+30,end:14*60+45,title:'Workshop: Youth Entrepreneurship & Access to Finance',type:'workshop',   room:'Room MC2-800',       speaker:'IFC & SME Finance Team',             desc:'Practical tools for accessing capital, building bankable business plans, and navigating financial systems.'},
+  {id:11, day:1, start:13*60+30,end:14*60+45,title:'Workshop: Advocacy & Communication for Change',       type:'workshop',   room:'Room MC2-850',       speaker:'External & Corporate Affairs',       desc:'How to communicate development priorities to policymakers, media, and the public.'},
+  {id:12, day:1, start:14*60+45,end:15*60,   title:'Afternoon Break',                                     type:'networking', room:'Main Atrium',        speaker:'',                                    desc:''},
+  {id:13, day:1, start:15*60,  end:16*60+15, title:'Panel: Fragility, Conflict & Youth Resilience',       type:'panel',      room:'Preston Auditorium', speaker:'FCV Group · Youth Advocates',        desc:'Young people navigating and rebuilding in conflict-affected and fragile environments share their experiences and solutions.'},
+  {id:14, day:1, start:15*60,  end:16*60+15, title:'Workshop: Data for Development — Youth-Led Research', type:'workshop',   room:'Room MC2-800',       speaker:'Development Data Group',             desc:'Introduction to open data tools, survey design, and evidence-based research methodologies for young analysts.'},
+  {id:15, day:1, start:16*60+15,end:17*60,   title:'Day 1 Synthesis & Youth Rapporteur Showcase',         type:'plenary',    room:'Preston Auditorium', speaker:'Youth Rapporteurs',                  desc:'Youth-elected rapporteurs present the key insights, declarations, and action commitments from Day 1.'},
+  {id:16, day:1, start:17*60,  end:19*60,    title:'Welcome Reception & Cultural Showcase',                type:'networking', room:'Atrium',            speaker:'',                                    desc:'Evening reception celebrating youth voices with cultural performances and regional food stations.'},
+
+  // Day 2
+  {id:17, day:2, start:8*60+30, end:9*60,    title:'Morning Coffee & Connection',                          type:'networking', room:'Main Atrium',        speaker:'',                                    desc:''},
+  {id:18, day:2, start:9*60,    end:9*60+45, title:'Keynote: Financing Our Future — Debt, Investment & Youth',type:'keynote',room:'Preston Auditorium',speaker:'WBG Chief Economist',               desc:'Understanding how sovereign debt, blended finance, and private investment shape opportunities for the next generation.'},
+  {id:19, day:2, start:9*60+45, end:11*60,   title:'Plenary: Gender Equality & Economic Empowerment',      type:'plenary',    room:'Preston Auditorium', speaker:'Gender & Development Team',          desc:'Advancing gender-responsive policies, closing wage gaps, and ensuring women and girls drive development outcomes.'},
+  {id:20, day:2, start:9*60+45, end:11*60,   title:'Workshop: Urban Youth & Sustainable Cities',           type:'workshop',   room:'Room MC2-800',       speaker:'Urban Development & DRR Team',      desc:'Co-designing cities that work for young residents through participatory planning and resilient infrastructure.'},
+  {id:21, day:2, start:9*60+45, end:11*60,   title:'Workshop: Mental Health & Wellbeing in Development',   type:'workshop',   room:'Room MC2-850',       speaker:'HSD & Global Health Team',          desc:'Integrating youth mental health into development programming — evidence, stigma, and systemic approaches.'},
+  {id:22, day:2, start:11*60,   end:11*60+15,title:'Break',                                                type:'networking', room:'Main Atrium',        speaker:'',                                    desc:''},
+  {id:23, day:2, start:11*60+15,end:12*60+30,title:'Panel: Nature, Biodiversity & Youth Stewardship',      type:'panel',      room:'Preston Auditorium', speaker:'ENV Team · Youth Conservationists',  desc:'Young environmentalists leading biodiversity protection and nature-based solution initiatives across the Global South.'},
+  {id:24, day:2, start:11*60+15,end:12*60+30,title:'Workshop: Evaluation Methods for Young Practitioners', type:'workshop',   room:'Room MC2-800',       speaker:'IEG & DIME Teams',                  desc:'Rigorous, practical tools for measuring impact — randomised evaluations, qualitative methods, and mixed approaches.'},
+  {id:25, day:2, start:11*60+15,end:12*60+30,title:'Workshop: Multilateral Diplomacy & Youth Voice',       type:'workshop',   room:'Room MC2-850',       speaker:'Governance Global Practice',         desc:'How international institutions work, and how youth can meaningfully shape them from the inside and outside.'},
+  {id:26, day:2, start:12*60+30,end:13*60+30,title:'Networking Lunch & Youth Marketplace',                 type:'networking', room:'Atrium Café',        speaker:'',                                    desc:'Showcase of youth-led social enterprises, research projects, and community initiatives from across the globe.'},
+  {id:27, day:2, start:13*60+30,end:14*60+30,title:'Panel: Technology, AI & Equitable Development',        type:'panel',      room:'Preston Auditorium', speaker:'Digital & Data Teams',              desc:'Ensuring artificial intelligence and digital transformation serve development goals equitably — governance, bias, and access.'},
+  {id:28, day:2, start:13*60+30,end:14*60+30,title:'Workshop: Food Systems & Youth Agriculture',           type:'workshop',   room:'Room MC2-800',       speaker:'Agriculture & Food Global Practice', desc:'Transforming food systems for climate resilience, nutrition, and rural youth livelihoods.'},
+  {id:29, day:2, start:14*60+30,end:14*60+45,title:'Break',                                                type:'networking', room:'Main Atrium',        speaker:'',                                    desc:''},
+  {id:30, day:2, start:14*60+45,end:15*60+45,title:'Youth Declarations: Presenting the Summit Outcomes',   type:'plenary',    room:'Preston Auditorium', speaker:'Youth Delegates',                   desc:'Youth delegates present the official 2025 Youth Summit Declaration and Action Agenda to WBG leadership.'},
+  {id:31, day:2, start:15*60+45,end:16*60+30,title:'Closing Ceremony & Commitment to Action',              type:'keynote',    room:'Preston Auditorium', speaker:'WBG Leadership & Youth Champions',  desc:'Summit commitments, presentation of next steps, and celebration of the extraordinary youth leadership on display.'},
+  {id:32, day:2, start:16*60+30,end:18*60,   title:'Closing Reception',                                    type:'networking', room:'Atrium',            speaker:'',                                    desc:'Final networking celebration — connect, reflect, and plan the road ahead.'},
+];
+
+// UTC offset for Washington DC (ET = UTC-4 in June)
+const DC_OFFSET = -4;
+
+let currentDay = 1;
+let currentView = 'all';
+let myAgenda = new Set();
+let currentOffset = -4;
+
+function fmtMins(totalMins, offset) {
+  let m = totalMins + (offset - DC_OFFSET) * 60;
+  let dayShift = 0;
+  if (m >= 1440) { m -= 1440; dayShift = 1; }
+  if (m < 0)     { m += 1440; dayShift = -1; }
+  const h = Math.floor(m / 60);
+  const mn = m % 60;
+  const ampm = h >= 12 ? 'pm' : 'am';
+  const h12 = h % 12 === 0 ? 12 : h % 12;
+  const ds = dayShift === 1 ? ' (+1)' : dayShift === -1 ? ' (−1)' : '';
+  return `${h12}:${String(mn).padStart(2,'0')} ${ampm}${ds}`;
+}
+
+function fmtRange(s, offset) {
+  return `${fmtMins(s.start, offset)} – ${fmtMins(s.end, offset)}`;
+}
+
+function utcStr(offset) {
+  const sign = offset >= 0 ? '+' : '−';
+  const abs = Math.abs(offset);
+  const h = Math.floor(abs);
+  const m = (abs % 1) * 60;
+  return m ? `UTC${sign}${h}:${String(m).padStart(2,'0')}` : `UTC${sign}${h}`;
+}
+
+function setDay(d) {
+  currentDay = d;
+  [1,2].forEach(i => {
+    const btn = document.getElementById('day-btn-'+i);
+    btn.className = 'pill' + (i === d ? ' active' : '');
+  });
+  render();
+}
+
+function setView(v) {
+  currentView = v;
+  document.getElementById('view-all').className = 'pill' + (v==='all' ? ' active' : '');
+  document.getElementById('view-mine').className = 'pill' + (v==='mine' ? ' active-amber' : '');
+  render();
+}
+
+function updateTz() {
+  const sel = document.getElementById('tz-picker');
+  currentOffset = parseFloat(sel.value);
+  const label = sel.options[sel.selectedIndex].text.split('—')[0].trim();
+  document.getElementById('tz-badge').textContent = label;
+  render();
+}
+
+function toggleSession(id) {
+  if (myAgenda.has(id)) myAgenda.delete(id);
+  else myAgenda.add(id);
+  render();
+}
+
+function render() {
+  let list = SESSIONS.filter(s => s.day === currentDay);
+  if (currentView === 'mine') list = list.filter(s => myAgenda.has(s.id));
+
+  // Group by start time
+  const groups = {};
+  list.forEach(s => {
+    if (!groups[s.start]) groups[s.start] = [];
+    groups[s.start].push(s);
+  });
+  const sorted = Object.entries(groups).sort((a,b) => +a[0] - +b[0]);
+
+  const grid = document.getElementById('schedule');
+
+  if (sorted.length === 0) {
+    grid.innerHTML = `<div class="empty"><div class="empty-icon">📋</div><p>Tap sessions to build your personal agenda</p></div>`;
+  } else {
+    grid.innerHTML = sorted.map(([mins, items]) => `
+      <div class="time-block">
+        <div class="time-row-label">
+          <span class="time-text">${fmtMins(+mins, currentOffset)}</span>
+          <div class="time-divider"></div>
+        </div>
+        <div class="sessions-at-time">
+          ${items.map(s => `
+            <div class="session-card type-${s.type} ${myAgenda.has(s.id) ? 'saved' : ''}" onclick="toggleSession(${s.id})">
+              <div class="card-check">
+                <svg class="check-svg" width="10" height="8" viewBox="0 0 10 8" fill="none">
+                  <path d="M1 4L3.5 6.5L9 1" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+              <div class="card-body">
+                <div class="card-title">${s.title}</div>
+                <div class="card-meta">
+                  <span class="card-time">${fmtRange(s, currentOffset)}</span>
+                  <span class="card-badge badge-${s.type}">${s.type}</span>
+                  ${s.room ? `<span class="card-room">${s.room}</span>` : ''}
+                </div>
+                ${s.speaker ? `<div class="card-speaker">${s.speaker}</div>` : ''}
+                ${s.desc ? `<div class="card-desc">${s.desc}</div>` : ''}
+              </div>
+            </div>
+          `).join('')}
+        </div>
+      </div>
+    `).join('');
+  }
+
+  // Summary bar
+  const total = myAgenda.size;
+  const d1 = [...myAgenda].filter(id => SESSIONS.find(s=>s.id===id)?.day===1).length;
+  const d2 = [...myAgenda].filter(id => SESSIONS.find(s=>s.id===id)?.day===2).length;
+  const types = {};
+  [...myAgenda].forEach(id => {
+    const s = SESSIONS.find(x=>x.id===id);
+    if (s) types[s.type] = (types[s.type]||0)+1;
+  });
+
+  document.getElementById('summary-bar').innerHTML = `
+    <div class="agenda-chip"><strong>${total}</strong><span>Sessions saved</span></div>
+    <div class="agenda-chip"><strong>${d1}</strong><span>Day 1 sessions</span></div>
+    <div class="agenda-chip"><strong>${d2}</strong><span>Day 2 sessions</span></div>
+    <div class="agenda-chip"><strong>${utcStr(currentOffset)}</strong><span>Current timezone</span></div>
+  `;
+}
+
+render();
+</script>
+</body>
+</html>
