@@ -3,165 +3,198 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>World Bank Youth Summit 2025 — Agenda Planner</title>
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,400&display=swap" rel="stylesheet">
+<title>WBG Youth Summit 2026 — FutureWorks Agenda Planner</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Open+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   :root {
-    --blue: #185FA5;
-    --blue-light: #deeaf7;
-    --blue-mid: #378ADD;
-    --teal: #0F6E56;
-    --teal-light: #d7f0e8;
-    --amber: #BA7517;
-    --amber-light: #faecd4;
-    --coral: #993C1D;
-    --pink: #993556;
-    --pink-light: #fce8f0;
-    --purple: #534AB7;
-    --purple-light: #eeedfd;
-    --text: #1a1a1a;
-    --text-muted: #666;
-    --text-light: #999;
-    --bg: #ffffff;
-    --bg-soft: #f7f7f5;
-    --bg-card: #ffffff;
-    --border: rgba(0,0,0,0.09);
-    --border-hover: rgba(0,0,0,0.18);
-    --shadow: 0 1px 4px rgba(0,0,0,0.07);
-    --shadow-md: 0 2px 12px rgba(0,0,0,0.1);
-    --radius: 10px;
+    --navy:        #0a1628;
+    --navy-mid:    #0e1f3d;
+    --navy-card:   #132040;
+    --navy-light:  #1a2d52;
+    --teal:        #00c9a7;
+    --teal-dark:   #009e85;
+    --teal-glow:   rgba(0,201,167,0.15);
+    --coral:       #ff6b47;
+    --coral-dark:  #e04e2c;
+    --coral-glow:  rgba(255,107,71,0.15);
+    --blue-bright: #4fc3f7;
+    --text:        #f0f4ff;
+    --text-muted:  #8ba3c7;
+    --text-dim:    #4d6a94;
+    --border:      rgba(255,255,255,0.08);
+    --border-teal: rgba(0,201,167,0.3);
+    --shadow:      0 2px 12px rgba(0,0,0,0.3);
+    --shadow-lg:   0 4px 24px rgba(0,0,0,0.4);
+    --radius:      12px;
+    --radius-sm:   8px;
   }
 
   body {
-    font-family: 'DM Sans', sans-serif;
-    background: #f0ede8;
+    font-family: 'Open Sans', sans-serif;
+    background: var(--navy);
     color: var(--text);
     min-height: 100vh;
-    padding: 0;
   }
 
-  /* ── Header ── */
+  /* ── HEADER ── */
   .header {
-    background: linear-gradient(135deg, #003a6e 0%, #1a5fa5 60%, #2d8a6e 100%);
-    color: white;
-    padding: 2rem 2rem 1.5rem;
+    background: linear-gradient(160deg, #081020 0%, #0d1d3a 40%, #0a2a2a 100%);
+    padding: 2.5rem 2rem 2rem;
     text-align: center;
     position: relative;
     overflow: hidden;
+    border-bottom: 1px solid var(--border-teal);
   }
 
-  .header::before {
-    content: '';
+  /* Gear decorations */
+  .gear {
     position: absolute;
-    inset: 0;
-    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    opacity: 0.18;
     pointer-events: none;
   }
+  .gear svg { display: block; }
+  .gear-1 { left: -30px; top: 20px; }
+  .gear-2 { left: 60px; bottom: -20px; }
+  .gear-3 { right: -20px; top: -10px; }
+  .gear-4 { right: 80px; bottom: -10px; }
 
   .header-inner { position: relative; z-index: 1; }
 
-  .wbg-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    background: rgba(255,255,255,0.15);
-    border: 1px solid rgba(255,255,255,0.25);
-    border-radius: 20px;
-    padding: 4px 12px;
-    font-size: 11px;
-    font-weight: 500;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: rgba(255,255,255,0.9);
-    margin-bottom: 10px;
+  .summit-edition {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: rgba(0,201,167,0.12); border: 1px solid var(--border-teal);
+    border-radius: 20px; padding: 5px 14px;
+    font-size: 11px; font-weight: 600; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--teal); margin-bottom: 14px;
+    font-family: 'Montserrat', sans-serif;
   }
 
   .header h1 {
-    font-family: 'DM Serif Display', serif;
-    font-size: clamp(22px, 4vw, 34px);
-    font-weight: 400;
+    font-family: 'Montserrat', sans-serif;
+    font-size: clamp(20px, 4.5vw, 36px);
+    font-weight: 800;
     line-height: 1.15;
-    color: white;
+    color: var(--text);
     margin-bottom: 6px;
   }
 
-  .header h1 em {
-    font-style: italic;
-    color: #7dd4b8;
+  .header h1 .accent { color: var(--teal); }
+
+  .header-theme {
+    font-family: 'Montserrat', sans-serif;
+    font-size: clamp(13px, 2.5vw, 17px);
+    font-weight: 600;
+    color: var(--coral);
+    margin-bottom: 8px;
+    letter-spacing: 0.02em;
   }
 
   .header-sub {
     font-size: 13px;
-    color: rgba(255,255,255,0.75);
-    margin-bottom: 1.2rem;
+    color: var(--text-muted);
+    margin-bottom: 1.5rem;
   }
+
+  .header-desc {
+    max-width: 600px;
+    margin: 0 auto 1.5rem;
+    font-size: 12px;
+    color: var(--text-muted);
+    line-height: 1.7;
+  }
+
+  .header-desc strong { color: var(--text); font-weight: 600; }
 
   .header-stats {
     display: flex;
     justify-content: center;
-    gap: 1.5rem;
+    gap: 2rem;
     flex-wrap: wrap;
   }
 
-  .hstat {
-    text-align: center;
-  }
-
+  .hstat { text-align: center; }
   .hstat-val {
-    font-size: 20px;
-    font-weight: 500;
-    color: white;
-    display: block;
+    font-size: 22px; font-weight: 700;
+    font-family: 'Montserrat', sans-serif;
+    color: var(--teal); display: block;
   }
+  .hstat-lbl { font-size: 11px; color: var(--text-muted); }
 
-  .hstat-lbl {
-    font-size: 11px;
-    color: rgba(255,255,255,0.65);
-  }
+  /* ── APP ── */
+  .app { max-width: 900px; margin: 0 auto; padding: 1.5rem 1rem 3rem; }
 
-  /* ── App shell ── */
-  .app {
-    max-width: 860px;
-    margin: 0 auto;
-    padding: 1.5rem 1rem 3rem;
-  }
-
-  /* ── My agenda summary ── */
+  /* ── SUMMARY ── */
   .agenda-summary {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(120px,1fr));
     gap: 10px;
     margin-bottom: 1.25rem;
   }
 
   .agenda-chip {
-    background: var(--bg-card);
+    background: var(--navy-card);
     border: 1px solid var(--border);
     border-radius: var(--radius);
-    padding: 10px 14px;
+    padding: 12px 14px;
     text-align: center;
     box-shadow: var(--shadow);
+    transition: border-color 0.2s;
   }
+
+  .agenda-chip.has-data { border-color: var(--border-teal); }
 
   .agenda-chip strong {
-    display: block;
-    font-size: 22px;
-    font-weight: 500;
-    color: var(--text);
-    line-height: 1;
-    margin-bottom: 3px;
+    display: block; font-size: 24px; font-weight: 700;
+    font-family: 'Montserrat', sans-serif;
+    color: var(--teal); line-height: 1; margin-bottom: 4px;
   }
 
-  .agenda-chip span {
-    font-size: 11px;
-    color: var(--text-muted);
+  .agenda-chip span { font-size: 11px; color: var(--text-muted); }
+
+  /* ── EXPORT BAR ── */
+  .export-bar {
+    background: linear-gradient(90deg, rgba(0,201,167,0.1), rgba(0,201,167,0.04));
+    border: 1px solid var(--border-teal);
+    border-radius: var(--radius);
+    padding: 12px 16px;
+    margin-bottom: 1.25rem;
+    display: none;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .export-bar.visible { display: flex; }
+
+  .export-bar-label {
+    font-size: 13px; font-weight: 600;
+    color: var(--teal);
+    font-family: 'Montserrat', sans-serif;
+    flex: 1; min-width: 160px;
   }
 
-  /* ── Controls bar ── */
+  .export-btns { display: flex; gap: 8px; flex-wrap: wrap; }
+
+  .export-btn {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 7px 13px; font-size: 11px; font-weight: 600;
+    font-family: 'Montserrat', sans-serif;
+    border-radius: var(--radius-sm); border: 1px solid; cursor: pointer;
+    transition: all 0.15s; text-decoration: none; white-space: nowrap;
+    background: var(--navy-card);
+  }
+
+  .export-btn-google  { color: #4fc3f7; border-color: rgba(79,195,247,0.35); }
+  .export-btn-google:hover  { background: rgba(79,195,247,0.12); }
+  .export-btn-ics     { color: var(--teal); border-color: var(--border-teal); }
+  .export-btn-ics:hover     { background: var(--teal-glow); }
+  .export-btn-outlook { color: #90caf9; border-color: rgba(144,202,249,0.35); }
+  .export-btn-outlook:hover { background: rgba(144,202,249,0.1); }
+
+  /* ── CONTROLS ── */
   .controls {
-    background: var(--bg-card);
+    background: var(--navy-card);
     border: 1px solid var(--border);
     border-radius: var(--radius);
     padding: 14px 16px;
@@ -169,307 +202,220 @@
     box-shadow: var(--shadow);
   }
 
-  .controls-row {
-    display: flex;
-    gap: 10px;
-    align-items: center;
-    flex-wrap: wrap;
-  }
-
-  .controls-row + .controls-row {
-    margin-top: 10px;
-    padding-top: 10px;
-    border-top: 1px solid var(--border);
-  }
+  .controls-row { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+  .controls-row + .controls-row { margin-top: 10px; padding-top: 10px; border-top: 1px solid var(--border); }
 
   .controls-label {
-    font-size: 11px;
-    font-weight: 500;
-    color: var(--text-muted);
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    white-space: nowrap;
-    min-width: 60px;
+    font-size: 10px; font-weight: 700; color: var(--text-muted);
+    text-transform: uppercase; letter-spacing: 0.08em;
+    font-family: 'Montserrat', sans-serif;
+    white-space: nowrap; min-width: 60px;
   }
 
   .pill-group {
-    display: flex;
-    gap: 4px;
-    background: var(--bg-soft);
-    padding: 3px;
-    border-radius: 8px;
+    display: flex; gap: 4px;
+    background: var(--navy-mid);
+    padding: 3px; border-radius: var(--radius-sm);
     border: 1px solid var(--border);
   }
 
   .pill {
-    padding: 5px 13px;
-    font-size: 12px;
-    font-weight: 500;
-    border: none;
-    background: transparent;
-    color: var(--text-muted);
-    border-radius: 6px;
-    cursor: pointer;
-    transition: all 0.15s;
-    font-family: 'DM Sans', sans-serif;
+    padding: 6px 14px; font-size: 12px; font-weight: 600;
+    font-family: 'Montserrat', sans-serif;
+    border: none; background: transparent; color: var(--text-muted);
+    border-radius: 6px; cursor: pointer; transition: all 0.15s;
     white-space: nowrap;
   }
 
-  .pill.active {
-    background: white;
-    color: var(--blue);
-    box-shadow: var(--shadow);
-  }
+  .pill.active { background: var(--teal); color: var(--navy); }
+  .pill.active-coral { background: var(--coral); color: white; }
 
-  .pill.active-amber {
-    background: white;
-    color: var(--amber);
-    box-shadow: var(--shadow);
-  }
-
-  .tz-select-wrap {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    flex-wrap: wrap;
-    flex: 1;
-  }
+  .tz-select-wrap { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; flex: 1; }
 
   .tz-select-wrap select {
-    font-size: 12px;
-    font-family: 'DM Sans', sans-serif;
-    padding: 6px 10px;
-    border-radius: 7px;
+    font-size: 12px; font-family: 'Open Sans', sans-serif;
+    padding: 7px 10px; border-radius: var(--radius-sm);
     border: 1px solid var(--border);
-    background: var(--bg-soft);
-    color: var(--text);
-    cursor: pointer;
-    flex: 1;
-    min-width: 180px;
-    max-width: 320px;
+    background: var(--navy-mid); color: var(--text);
+    cursor: pointer; flex: 1; min-width: 200px; max-width: 360px;
   }
 
   .tz-current {
-    font-size: 12px;
-    color: var(--blue);
-    font-weight: 500;
-    background: var(--blue-light);
-    padding: 4px 10px;
-    border-radius: 5px;
-    white-space: nowrap;
+    font-size: 11px; font-weight: 700; color: var(--navy);
+    background: var(--teal); padding: 4px 10px;
+    border-radius: 5px; white-space: nowrap;
+    font-family: 'Montserrat', sans-serif;
   }
 
-  /* ── Legend ── */
-  .legend {
-    display: flex;
-    gap: 12px;
-    flex-wrap: wrap;
-    margin-bottom: 1rem;
-    padding: 0 2px;
-  }
+  /* ── LEGEND ── */
+  .legend { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 1rem; padding: 0 2px; align-items: center; }
+  .legend-item { display: flex; align-items: center; gap: 5px; font-size: 11px; color: var(--text-muted); }
+  .legend-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
 
-  .legend-item {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    font-size: 11px;
-    color: var(--text-muted);
-  }
+  /* ── SCHEDULE ── */
+  .time-block { margin-bottom: 16px; }
 
-  .legend-dot {
-    width: 9px;
-    height: 9px;
-    border-radius: 50%;
-    flex-shrink: 0;
-  }
-
-  /* ── Schedule ── */
-  .time-block { margin-bottom: 14px; }
-
-  .time-row-label {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 6px;
-  }
-
+  .time-row-label { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
   .time-row-label .time-text {
-    font-size: 11px;
-    font-weight: 500;
-    color: var(--text-muted);
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    white-space: nowrap;
+    font-size: 11px; font-weight: 700; color: var(--teal);
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase; letter-spacing: 0.07em; white-space: nowrap;
   }
-
-  .time-row-label .time-divider {
-    flex: 1;
-    height: 1px;
-    background: var(--border);
-  }
+  .time-row-label .time-divider { flex: 1; height: 1px; background: var(--border); }
 
   .sessions-at-time {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(280px,1fr));
     gap: 8px;
   }
 
-  /* ── Session card ── */
+  /* ── SESSION CARD ── */
   .session-card {
-    background: var(--bg-card);
+    background: var(--navy-card);
     border: 1px solid var(--border);
     border-radius: var(--radius);
-    padding: 12px 14px;
+    padding: 13px 14px;
     cursor: pointer;
-    transition: border-color 0.15s, box-shadow 0.15s, background 0.12s;
-    position: relative;
-    display: flex;
-    gap: 10px;
-    align-items: flex-start;
+    transition: border-color 0.15s, box-shadow 0.15s, transform 0.12s;
+    display: flex; gap: 10px; align-items: flex-start;
     box-shadow: var(--shadow);
   }
 
-  .session-card:hover {
-    border-color: var(--border-hover);
-    box-shadow: var(--shadow-md);
-    transform: translateY(-1px);
-  }
+  .session-card:hover { border-color: rgba(255,255,255,0.2); box-shadow: var(--shadow-lg); transform: translateY(-1px); }
+  .session-card.saved { border-color: var(--border-teal); background: linear-gradient(135deg, var(--navy-card), rgba(0,201,167,0.06)); }
 
-  .session-card.saved {
-    background: #eef4fd;
-    border-color: #b5d4f4;
-  }
-
-  .session-card.type-plenary  { border-left: 3px solid var(--blue-mid); }
-  .session-card.type-keynote  { border-left: 3px solid var(--purple); }
-  .session-card.type-workshop { border-left: 3px solid var(--teal); }
-  .session-card.type-panel    { border-left: 3px solid var(--amber); }
-  .session-card.type-networking { border-left: 3px solid var(--pink); }
+  .session-card.type-plenary   { border-left: 3px solid var(--blue-bright); }
+  .session-card.type-keynote   { border-left: 3px solid var(--teal); }
+  .session-card.type-workshop  { border-left: 3px solid var(--coral); }
+  .session-card.type-panel     { border-left: 3px solid #f9a825; }
+  .session-card.type-networking{ border-left: 3px solid #ab47bc; }
 
   .card-check {
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    border: 1.5px solid #ccc;
-    flex-shrink: 0;
-    margin-top: 1px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.15s;
-    background: white;
+    width: 20px; height: 20px; border-radius: 50%;
+    border: 1.5px solid var(--text-dim); flex-shrink: 0; margin-top: 1px;
+    display: flex; align-items: center; justify-content: center;
+    transition: all 0.15s; background: var(--navy-mid);
   }
-
-  .session-card.saved .card-check {
-    background: var(--blue);
-    border-color: var(--blue);
-  }
-
+  .session-card.saved .card-check { background: var(--teal); border-color: var(--teal); }
   .check-svg { display: none; }
   .session-card.saved .check-svg { display: block; }
 
   .card-body { flex: 1; min-width: 0; }
-
-  .card-title {
-    font-size: 13px;
-    font-weight: 500;
-    color: var(--text);
-    line-height: 1.35;
-    margin-bottom: 5px;
-  }
-
-  .card-meta {
-    display: flex;
-    gap: 6px;
-    flex-wrap: wrap;
-    align-items: center;
-    margin-bottom: 3px;
-  }
-
-  .card-time {
-    font-size: 11px;
-    color: var(--text-muted);
-    font-weight: 500;
-  }
+  .card-title { font-size: 13px; font-weight: 600; font-family: 'Montserrat', sans-serif; color: var(--text); line-height: 1.35; margin-bottom: 6px; }
+  .card-meta { display: flex; gap: 6px; flex-wrap: wrap; align-items: center; margin-bottom: 3px; }
+  .card-time { font-size: 11px; color: var(--text-muted); font-weight: 600; font-family: 'Montserrat', sans-serif; }
 
   .card-badge {
-    font-size: 9px;
-    font-weight: 500;
-    padding: 2px 6px;
-    border-radius: 4px;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
+    font-size: 9px; font-weight: 700; padding: 2px 7px;
+    border-radius: 4px; text-transform: uppercase; letter-spacing: 0.06em;
+    font-family: 'Montserrat', sans-serif;
   }
 
-  .badge-plenary    { background: #deeaf7; color: #185FA5; }
-  .badge-keynote    { background: #eeedfd; color: #534AB7; }
-  .badge-workshop   { background: #d7f0e8; color: #0F6E56; }
-  .badge-panel      { background: #faecd4; color: #BA7517; }
-  .badge-networking { background: #fce8f0; color: #993556; }
+  .badge-plenary    { background: rgba(79,195,247,0.15);  color: #4fc3f7; }
+  .badge-keynote    { background: rgba(0,201,167,0.15);   color: var(--teal); }
+  .badge-workshop   { background: rgba(255,107,71,0.15);  color: var(--coral); }
+  .badge-panel      { background: rgba(249,168,37,0.15);  color: #f9a825; }
+  .badge-networking { background: rgba(171,71,188,0.15);  color: #ce93d8; }
 
-  .card-room {
-    font-size: 10px;
-    color: var(--text-light);
+  .card-room { font-size: 10px; color: var(--text-dim); }
+  .card-speaker { font-size: 11px; color: var(--text-muted); font-style: italic; margin-top: 3px; }
+  .card-desc { font-size: 11px; color: var(--text-muted); margin-top: 5px; line-height: 1.6; }
+
+  /* Calendar buttons */
+  .card-cal-btns {
+    display: none;
+    margin-top: 10px; padding-top: 10px;
+    border-top: 1px solid rgba(0,201,167,0.2);
+    gap: 6px; flex-wrap: wrap; align-items: center;
   }
+  .session-card.saved .card-cal-btns { display: flex; }
 
-  .card-speaker {
-    font-size: 11px;
-    color: var(--text-muted);
-    font-style: italic;
-    margin-top: 3px;
+  .cal-btn {
+    display: inline-flex; align-items: center; gap: 4px;
+    padding: 4px 10px; font-size: 10px; font-weight: 700;
+    font-family: 'Montserrat', sans-serif;
+    border-radius: 5px; border: 1px solid; cursor: pointer;
+    text-decoration: none; transition: all 0.15s; white-space: nowrap;
+    background: var(--navy-mid);
   }
+  .cal-btn-google  { color: #4fc3f7; border-color: rgba(79,195,247,0.35); }
+  .cal-btn-google:hover  { background: rgba(79,195,247,0.12); }
+  .cal-btn-apple   { color: var(--teal); border-color: var(--border-teal); }
+  .cal-btn-apple:hover   { background: var(--teal-glow); }
+  .cal-btn-outlook { color: #90caf9; border-color: rgba(144,202,249,0.3); }
+  .cal-btn-outlook:hover { background: rgba(144,202,249,0.1); }
+  .cal-note { font-size: 10px; color: var(--text-dim); }
 
-  .card-desc {
-    font-size: 11px;
-    color: var(--text-muted);
-    margin-top: 4px;
-    line-height: 1.5;
-  }
-
-  /* ── Empty state ── */
-  .empty {
-    text-align: center;
-    padding: 3.5rem 1rem;
-    color: var(--text-muted);
-  }
-
-  .empty-icon {
-    font-size: 36px;
-    margin-bottom: 10px;
-  }
-
+  /* Empty */
+  .empty { text-align: center; padding: 4rem 1rem; color: var(--text-muted); }
+  .empty-icon { font-size: 40px; margin-bottom: 12px; }
   .empty p { font-size: 14px; }
+  .empty p span { color: var(--teal); font-weight: 600; }
 
-  /* ── Footer ── */
+  /* Footer */
   .footer {
-    text-align: center;
-    padding: 1rem;
-    font-size: 11px;
-    color: var(--text-light);
-    border-top: 1px solid var(--border);
-    margin-top: 2rem;
+    text-align: center; padding: 1.25rem 1rem; font-size: 11px;
+    color: var(--text-dim); border-top: 1px solid var(--border);
+    margin-top: 2rem; font-family: 'Montserrat', sans-serif;
+    letter-spacing: 0.03em;
   }
 
-  /* ── Responsive ── */
+  /* Scrollbar */
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: var(--navy); }
+  ::-webkit-scrollbar-thumb { background: var(--navy-light); border-radius: 3px; }
+
   @media (max-width: 600px) {
-    .header { padding: 1.5rem 1rem 1rem; }
+    .header { padding: 1.5rem 1rem 1.25rem; }
     .app { padding: 1rem 0.75rem 2rem; }
     .sessions-at-time { grid-template-columns: 1fr; }
-    .controls-row { gap: 8px; }
+    .header-stats { gap: 1.25rem; }
   }
 </style>
 </head>
 <body>
 
+<!-- Header -->
 <div class="header">
+  <!-- Gear SVGs -->
+  <div class="gear gear-1">
+    <svg width="120" height="120" viewBox="0 0 100 100" fill="none">
+      <path d="M50 30a20 20 0 1 0 0 40 20 20 0 0 0 0-40zm0 5a15 15 0 1 1 0 30 15 15 0 0 1 0-30z" fill="#00c9a7"/>
+      <path d="M47 18h6v8h-6zM47 74h6v8h-6zM18 47v6h8v-6zM74 47v6h8v-6zM26.5 24.5l4.2 4.2-5.6 5.7-4.3-4.3zM70.7 65.4l4.2 4.2-5.6 5.7-4.3-4.2zM24.5 73.5l4.2-4.2 5.7 5.6-4.3 4.3zM65.4 29.3l4.2-4.2 5.7 5.6-4.3 4.3z" fill="#00c9a7"/>
+    </svg>
+  </div>
+  <div class="gear gear-2">
+    <svg width="90" height="90" viewBox="0 0 100 100" fill="none">
+      <path d="M50 30a20 20 0 1 0 0 40 20 20 0 0 0 0-40zm0 5a15 15 0 1 1 0 30 15 15 0 0 1 0-30z" fill="#ff6b47"/>
+      <path d="M47 18h6v8h-6zM47 74h6v8h-6zM18 47v6h8v-6zM74 47v6h8v-6zM26.5 24.5l4.2 4.2-5.6 5.7-4.3-4.3zM70.7 65.4l4.2 4.2-5.6 5.7-4.3-4.2zM24.5 73.5l4.2-4.2 5.7 5.6-4.3 4.3zM65.4 29.3l4.2-4.2 5.7 5.6-4.3 4.3z" fill="#ff6b47"/>
+    </svg>
+  </div>
+  <div class="gear gear-3">
+    <svg width="110" height="110" viewBox="0 0 100 100" fill="none">
+      <path d="M50 30a20 20 0 1 0 0 40 20 20 0 0 0 0-40zm0 5a15 15 0 1 1 0 30 15 15 0 0 1 0-30z" fill="#4fc3f7"/>
+      <path d="M47 18h6v8h-6zM47 74h6v8h-6zM18 47v6h8v-6zM74 47v6h8v-6zM26.5 24.5l4.2 4.2-5.6 5.7-4.3-4.3zM70.7 65.4l4.2 4.2-5.6 5.7-4.3-4.2zM24.5 73.5l4.2-4.2 5.7 5.6-4.3 4.3zM65.4 29.3l4.2-4.2 5.7 5.6-4.3 4.3z" fill="#4fc3f7"/>
+    </svg>
+  </div>
+  <div class="gear gear-4">
+    <svg width="80" height="80" viewBox="0 0 100 100" fill="none">
+      <path d="M50 30a20 20 0 1 0 0 40 20 20 0 0 0 0-40zm0 5a15 15 0 1 1 0 30 15 15 0 0 1 0-30z" fill="#00c9a7"/>
+      <path d="M47 18h6v8h-6zM47 74h6v8h-6zM18 47v6h8v-6zM74 47v6h8v-6zM26.5 24.5l4.2 4.2-5.6 5.7-4.3-4.3zM70.7 65.4l4.2 4.2-5.6 5.7-4.3-4.2zM24.5 73.5l4.2-4.2 5.7 5.6-4.3 4.3zM65.4 29.3l4.2-4.2 5.7 5.6-4.3 4.3z" fill="#00c9a7"/>
+    </svg>
+  </div>
+
   <div class="header-inner">
-    <div class="wbg-badge">&#127758; World Bank Group</div>
-    <h1>Youth Summit <em>2025</em></h1>
-    <p class="header-sub">June 11–12 &middot; Washington, DC &middot; Streamed Globally</p>
+    <div class="summit-edition">&#127758; World Bank Group · 13th Edition</div>
+    <h1>Youth Summit <span class="accent">2026</span></h1>
+    <div class="header-theme">#FutureWorks: Designing Jobs for the Digital Age</div>
+    <p class="header-sub">June 11–12 · Washington, DC · Streamed Globally</p>
+    <p class="header-desc">
+      Bringing together young leaders, innovators, and changemakers to tackle the most pressing development challenges facing their generation — centered on <strong>education &amp; skills</strong>, <strong>entrepreneurship</strong>, and <strong>agriculture</strong>.
+    </p>
     <div class="header-stats">
       <div class="hstat"><span class="hstat-val">2</span><span class="hstat-lbl">Days</span></div>
-      <div class="hstat"><span class="hstat-val">30</span><span class="hstat-lbl">Sessions</span></div>
+      <div class="hstat"><span class="hstat-val">32</span><span class="hstat-lbl">Sessions</span></div>
       <div class="hstat"><span class="hstat-val">13+</span><span class="hstat-lbl">Timezones</span></div>
+      <div class="hstat"><span class="hstat-val">3</span><span class="hstat-lbl">Themes</span></div>
     </div>
   </div>
 </div>
@@ -478,6 +424,25 @@
 
   <!-- Summary -->
   <div class="agenda-summary" id="summary-bar"></div>
+
+  <!-- Export bar -->
+  <div class="export-bar" id="export-bar">
+    <span class="export-bar-label">&#128197; Export your full saved agenda</span>
+    <div class="export-btns">
+      <a class="export-btn export-btn-google" id="export-google" href="#" target="_blank">
+        <svg width="13" height="13" viewBox="0 0 24 24"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+        Google Calendar
+      </a>
+      <button class="export-btn export-btn-ics" onclick="downloadICS()">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="18" rx="2" stroke="#00c9a7" stroke-width="1.8"/><path d="M16 2v4M8 2v4M3 10h18" stroke="#00c9a7" stroke-width="1.8" stroke-linecap="round"/></svg>
+        Apple / iCal (.ics)
+      </button>
+      <button class="export-btn export-btn-outlook" onclick="downloadICS()">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="3" fill="#0078D4"/><path d="M7 8h10M7 12h6M7 16h8" stroke="white" stroke-width="1.6" stroke-linecap="round"/></svg>
+        Outlook (.ics)
+      </button>
+    </div>
+  </div>
 
   <!-- Controls -->
   <div class="controls">
@@ -504,7 +469,7 @@
             <option value="-3">UTC-3 — São Paulo / Buenos Aires (BRT)</option>
           </optgroup>
           <optgroup label="Europe / Africa">
-            <option value="0">UTC+0 — London / Accra / Dakar (GMT/BST off-peak)</option>
+            <option value="0">UTC+0 — London / Accra / Dakar (GMT)</option>
             <option value="1">UTC+1 — London BST / Paris / Lagos (WAT/CEST)</option>
             <option value="2">UTC+2 — Cairo / Johannesburg / Harare (CAT/EET)</option>
             <option value="3">UTC+3 — Nairobi / Addis Ababa / Riyadh (EAT/AST)</option>
@@ -530,105 +495,168 @@
 
   <!-- Legend -->
   <div class="legend">
-    <div class="legend-item"><div class="legend-dot" style="background:#7F77DD"></div>Keynote</div>
-    <div class="legend-item"><div class="legend-dot" style="background:#378ADD"></div>Plenary</div>
-    <div class="legend-item"><div class="legend-dot" style="background:#1D9E75"></div>Workshop</div>
-    <div class="legend-item"><div class="legend-dot" style="background:#EF9F27"></div>Panel</div>
-    <div class="legend-item"><div class="legend-dot" style="background:#D4537E"></div>Networking</div>
-    <div class="legend-item" style="margin-left:auto"><span style="font-size:11px;color:#666">Tap a session to save it to your agenda</span></div>
+    <div class="legend-item"><div class="legend-dot" style="background:#00c9a7"></div>Keynote</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#4fc3f7"></div>Plenary</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#ff6b47"></div>Workshop</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#f9a825"></div>Panel</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#ab47bc"></div>Networking</div>
+    <div class="legend-item" style="margin-left:auto">
+      <span style="font-size:11px;color:var(--text-dim)">Tap a session to save &amp; add to calendar</span>
+    </div>
   </div>
 
   <!-- Schedule -->
   <div id="schedule"></div>
 
-  <div class="footer">World Bank Youth Summit 2025 &middot; Agenda subject to change</div>
+  <div class="footer">
+    WBG Youth Summit 2026 &nbsp;·&nbsp; #FutureWorks &nbsp;·&nbsp; June 11–12, Washington DC &nbsp;·&nbsp; Agenda subject to change
+  </div>
 </div>
 
 <script>
-const SESSIONS = [
-  // Day 1
-  {id:1,  day:1, start:8*60,   end:9*60,   title:'Registration & Welcome Coffee',                         type:'networking', room:'Main Atrium',        speaker:'',                                    desc:'Collect your badge, meet fellow delegates, and explore the summit marketplace.'},
-  {id:2,  day:1, start:9*60,   end:9*60+45,title:'Opening Ceremony & WBG President Address',              type:'keynote',    room:'Preston Auditorium', speaker:'WBG President & Youth Ambassadors',   desc:'Official opening of the 2025 Youth Summit with remarks from senior leadership and youth representatives from every region.'},
-  {id:3,  day:1, start:9*60+45,end:10*60+30,title:'Keynote: The Future of Global Development — A Youth Lens',type:'keynote',room:'Preston Auditorium', speaker:'Keynote Speaker TBC',                desc:'Framing the opportunities and challenges facing the next generation of development leaders.'},
-  {id:4,  day:1, start:10*60+30,end:11*60,  title:'Morning Break & Networking',                           type:'networking', room:'Main Atrium',        speaker:'',                                    desc:''},
-  {id:5,  day:1, start:11*60,  end:12*60+15,title:'Panel: Climate Action — Youth at the Frontlines',      type:'panel',      room:'Preston Auditorium', speaker:'Youth Climate Leaders · ENV Team',    desc:'Young leaders from climate-vulnerable nations share innovations and demand accountability from global institutions.'},
-  {id:6,  day:1, start:11*60,  end:12*60+15,title:'Workshop: Policy Design for Inclusive Economies',      type:'workshop',   room:'Room MC2-800',       speaker:'WBG Poverty & Equity Team',          desc:'Hands-on session co-designing youth employment and social protection policies.'},
-  {id:7,  day:1, start:11*60,  end:12*60+15,title:'Workshop: Digital Innovation in Emerging Markets',     type:'workshop',   room:'Room MC2-850',       speaker:'Digital Development Team',           desc:'Explore how fintech, AI, and connectivity can accelerate development outcomes in low-income countries.'},
-  {id:8,  day:1, start:12*60+15,end:13*60+30,title:'Networking Lunch',                                    type:'networking', room:'Atrium Café',        speaker:'',                                    desc:'Hosted lunch with facilitated roundtable discussions grouped by region and theme.'},
-  {id:9,  day:1, start:13*60+30,end:14*60+45,title:'Plenary: Education & the Skills of Tomorrow',         type:'plenary',    room:'Preston Auditorium', speaker:'Human Capital Project · UNICEF',     desc:'Building education systems that prepare youth for a rapidly changing labour market and climate-impacted future.'},
-  {id:10, day:1, start:13*60+30,end:14*60+45,title:'Workshop: Youth Entrepreneurship & Access to Finance',type:'workshop',   room:'Room MC2-800',       speaker:'IFC & SME Finance Team',             desc:'Practical tools for accessing capital, building bankable business plans, and navigating financial systems.'},
-  {id:11, day:1, start:13*60+30,end:14*60+45,title:'Workshop: Advocacy & Communication for Change',       type:'workshop',   room:'Room MC2-850',       speaker:'External & Corporate Affairs',       desc:'How to communicate development priorities to policymakers, media, and the public.'},
-  {id:12, day:1, start:14*60+45,end:15*60,   title:'Afternoon Break',                                     type:'networking', room:'Main Atrium',        speaker:'',                                    desc:''},
-  {id:13, day:1, start:15*60,  end:16*60+15, title:'Panel: Fragility, Conflict & Youth Resilience',       type:'panel',      room:'Preston Auditorium', speaker:'FCV Group · Youth Advocates',        desc:'Young people navigating and rebuilding in conflict-affected and fragile environments share their experiences and solutions.'},
-  {id:14, day:1, start:15*60,  end:16*60+15, title:'Workshop: Data for Development — Youth-Led Research', type:'workshop',   room:'Room MC2-800',       speaker:'Development Data Group',             desc:'Introduction to open data tools, survey design, and evidence-based research methodologies for young analysts.'},
-  {id:15, day:1, start:16*60+15,end:17*60,   title:'Day 1 Synthesis & Youth Rapporteur Showcase',         type:'plenary',    room:'Preston Auditorium', speaker:'Youth Rapporteurs',                  desc:'Youth-elected rapporteurs present the key insights, declarations, and action commitments from Day 1.'},
-  {id:16, day:1, start:17*60,  end:19*60,    title:'Welcome Reception & Cultural Showcase',                type:'networking', room:'Atrium',            speaker:'',                                    desc:'Evening reception celebrating youth voices with cultural performances and regional food stations.'},
+const DC_OFFSET = -4; // ET = UTC-4 in June
 
-  // Day 2
-  {id:17, day:2, start:8*60+30, end:9*60,    title:'Morning Coffee & Connection',                          type:'networking', room:'Main Atrium',        speaker:'',                                    desc:''},
-  {id:18, day:2, start:9*60,    end:9*60+45, title:'Keynote: Financing Our Future — Debt, Investment & Youth',type:'keynote',room:'Preston Auditorium',speaker:'WBG Chief Economist',               desc:'Understanding how sovereign debt, blended finance, and private investment shape opportunities for the next generation.'},
-  {id:19, day:2, start:9*60+45, end:11*60,   title:'Plenary: Gender Equality & Economic Empowerment',      type:'plenary',    room:'Preston Auditorium', speaker:'Gender & Development Team',          desc:'Advancing gender-responsive policies, closing wage gaps, and ensuring women and girls drive development outcomes.'},
-  {id:20, day:2, start:9*60+45, end:11*60,   title:'Workshop: Urban Youth & Sustainable Cities',           type:'workshop',   room:'Room MC2-800',       speaker:'Urban Development & DRR Team',      desc:'Co-designing cities that work for young residents through participatory planning and resilient infrastructure.'},
-  {id:21, day:2, start:9*60+45, end:11*60,   title:'Workshop: Mental Health & Wellbeing in Development',   type:'workshop',   room:'Room MC2-850',       speaker:'HSD & Global Health Team',          desc:'Integrating youth mental health into development programming — evidence, stigma, and systemic approaches.'},
-  {id:22, day:2, start:11*60,   end:11*60+15,title:'Break',                                                type:'networking', room:'Main Atrium',        speaker:'',                                    desc:''},
-  {id:23, day:2, start:11*60+15,end:12*60+30,title:'Panel: Nature, Biodiversity & Youth Stewardship',      type:'panel',      room:'Preston Auditorium', speaker:'ENV Team · Youth Conservationists',  desc:'Young environmentalists leading biodiversity protection and nature-based solution initiatives across the Global South.'},
-  {id:24, day:2, start:11*60+15,end:12*60+30,title:'Workshop: Evaluation Methods for Young Practitioners', type:'workshop',   room:'Room MC2-800',       speaker:'IEG & DIME Teams',                  desc:'Rigorous, practical tools for measuring impact — randomised evaluations, qualitative methods, and mixed approaches.'},
-  {id:25, day:2, start:11*60+15,end:12*60+30,title:'Workshop: Multilateral Diplomacy & Youth Voice',       type:'workshop',   room:'Room MC2-850',       speaker:'Governance Global Practice',         desc:'How international institutions work, and how youth can meaningfully shape them from the inside and outside.'},
-  {id:26, day:2, start:12*60+30,end:13*60+30,title:'Networking Lunch & Youth Marketplace',                 type:'networking', room:'Atrium Café',        speaker:'',                                    desc:'Showcase of youth-led social enterprises, research projects, and community initiatives from across the globe.'},
-  {id:27, day:2, start:13*60+30,end:14*60+30,title:'Panel: Technology, AI & Equitable Development',        type:'panel',      room:'Preston Auditorium', speaker:'Digital & Data Teams',              desc:'Ensuring artificial intelligence and digital transformation serve development goals equitably — governance, bias, and access.'},
-  {id:28, day:2, start:13*60+30,end:14*60+30,title:'Workshop: Food Systems & Youth Agriculture',           type:'workshop',   room:'Room MC2-800',       speaker:'Agriculture & Food Global Practice', desc:'Transforming food systems for climate resilience, nutrition, and rural youth livelihoods.'},
-  {id:29, day:2, start:14*60+30,end:14*60+45,title:'Break',                                                type:'networking', room:'Main Atrium',        speaker:'',                                    desc:''},
-  {id:30, day:2, start:14*60+45,end:15*60+45,title:'Youth Declarations: Presenting the Summit Outcomes',   type:'plenary',    room:'Preston Auditorium', speaker:'Youth Delegates',                   desc:'Youth delegates present the official 2025 Youth Summit Declaration and Action Agenda to WBG leadership.'},
-  {id:31, day:2, start:15*60+45,end:16*60+30,title:'Closing Ceremony & Commitment to Action',              type:'keynote',    room:'Preston Auditorium', speaker:'WBG Leadership & Youth Champions',  desc:'Summit commitments, presentation of next steps, and celebration of the extraordinary youth leadership on display.'},
-  {id:32, day:2, start:16*60+30,end:18*60,   title:'Closing Reception',                                    type:'networking', room:'Atrium',            speaker:'',                                    desc:'Final networking celebration — connect, reflect, and plan the road ahead.'},
+const SESSIONS = [
+  // ── DAY 1 ──
+  {id:1,  day:1, start:8*60,     end:9*60,     title:'Registration & Welcome Coffee',                              type:'networking', room:'Main Atrium',        speaker:'',                                         desc:'Pick up your badge, explore the FutureWorks marketplace, and connect with fellow delegates from across the globe.'},
+  {id:2,  day:1, start:9*60,     end:9*60+45,  title:'Opening Ceremony & WBG President Address',                   type:'keynote',    room:'Preston Auditorium', speaker:'WBG President & Youth Ambassadors',        desc:'The official opening of the 13th Youth Summit. Keynote remarks from senior WBG leadership and youth champions representing every region.'},
+  {id:3,  day:1, start:9*60+45,  end:10*60+30, title:'Keynote: Jobs of Tomorrow — What the Digital Age Demands',   type:'keynote',    room:'Preston Auditorium', speaker:'Keynote Speaker TBC',                      desc:'A bold look at how automation, AI, and climate transition are reshaping labour markets — and what this means for the next generation.'},
+  {id:4,  day:1, start:10*60+30, end:11*60,    title:'Morning Break & Networking',                                 type:'networking', room:'Main Atrium',        speaker:'',                                         desc:''},
+  {id:5,  day:1, start:11*60,    end:12*60+15, title:'Panel: Future of Education — Reskilling for the Digital Age',type:'panel',      room:'Preston Auditorium', speaker:'Human Capital Project · UNICEF · Youth Edu Leaders', desc:'How can education systems pivot fast enough? Young educators, policymakers, and students debate urgent reforms needed for a digital-first world.'},
+  {id:6,  day:1, start:11*60,    end:12*60+15, title:'Workshop: Coding the Future — Tech Skills for All',          type:'workshop',   room:'Room MC2-800',       speaker:'Digital Development Team · WBG Tech Labs',desc:'Hands-on introduction to digital skills pathways, coding bootcamp models, and inclusive tech training programmes in low-income contexts.'},
+  {id:7,  day:1, start:11*60,    end:12*60+15, title:'Workshop: Green Jobs & the Climate Transition',              type:'workshop',   room:'Room MC2-850',       speaker:'ENV & Infrastructure Team',               desc:'Mapping the green economy job pipeline — renewable energy, sustainable agriculture, and circular economy roles for youth.'},
+  {id:8,  day:1, start:12*60+15, end:13*60+30, title:'Networking Lunch',                                           type:'networking', room:'Atrium Café',        speaker:'',                                         desc:'Hosted lunch with facilitated roundtable discussions grouped by region and theme.'},
+  {id:9,  day:1, start:13*60+30, end:14*60+45, title:'Plenary: Entrepreneurship — Building the Next Generation of Founders', type:'plenary', room:'Preston Auditorium', speaker:'IFC · Youth Entrepreneur Network',  desc:'How do young people turn ideas into enterprises? IFC leaders and youth founders unpack access to capital, mentorship, and enabling ecosystems.'},
+  {id:10, day:1, start:13*60+30, end:14*60+45, title:'Workshop: Business Planning in the Digital Economy',         type:'workshop',   room:'Room MC2-800',       speaker:'IFC & SME Finance Team',                  desc:'A practical session on building bankable, digitally enabled business plans — from concept to pitch.'},
+  {id:11, day:1, start:13*60+30, end:14*60+45, title:'Workshop: Youth & the Gig Economy — Opportunity or Risk?',   type:'workshop',   room:'Room MC2-850',       speaker:'Social Protection & Jobs Team',            desc:'Understanding platform work, freelancing, and informal digital employment for young workers in the Global South.'},
+  {id:12, day:1, start:14*60+45, end:15*60,    title:'Afternoon Break',                                            type:'networking', room:'Main Atrium',        speaker:'',                                         desc:''},
+  {id:13, day:1, start:15*60,    end:16*60+15, title:'Panel: Digital Agriculture — Feeding the Future',            type:'panel',      room:'Preston Auditorium', speaker:'Agriculture & Food GP · Youth Farmers',   desc:'How precision agriculture, digital marketplaces, and climate-smart farming can transform rural youth employment and food security.'},
+  {id:14, day:1, start:15*60,    end:16*60+15, title:'Workshop: Women in the Digital Economy',                     type:'workshop',   room:'Room MC2-800',       speaker:'Gender & Development Team',                desc:'Closing the gender digital divide — tools, policies, and programmes enabling women and girls to lead in the digital economy.'},
+  {id:15, day:1, start:15*60,    end:16*60+15, title:'Workshop: Data Literacy for Young Change-makers',            type:'workshop',   room:'Room MC2-850',       speaker:'Development Data Group',                  desc:'Using data to diagnose problems, design solutions, and drive accountability — a practical introduction for young development practitioners.'},
+  {id:16, day:1, start:16*60+15, end:17*60,    title:'Day 1 Synthesis & Youth Rapporteur Showcase',               type:'plenary',    room:'Preston Auditorium', speaker:'Youth Rapporteurs',                        desc:'Youth-elected rapporteurs summarise the key insights, emerging agreements, and action commitments from Day 1.'},
+  {id:17, day:1, start:17*60,    end:19*60,    title:'Welcome Reception & FutureWorks Showcase',                   type:'networking', room:'Atrium',             speaker:'',                                         desc:'Evening reception celebrating youth innovation — featuring demonstrations from youth-led digital enterprises and cultural performances.'},
+
+  // ── DAY 2 ──
+  {id:18, day:2, start:8*60+30,  end:9*60,     title:'Morning Coffee & Connection',                                type:'networking', room:'Main Atrium',        speaker:'',                                         desc:''},
+  {id:19, day:2, start:9*60,     end:9*60+45,  title:'Keynote: AI & the Future of Work — Friend or Foe?',          type:'keynote',    room:'Preston Auditorium', speaker:'WBG Chief Economist',                      desc:'A frank conversation on artificial intelligence, automation, and what the evidence really says about jobs in developing economies.'},
+  {id:20, day:2, start:9*60+45,  end:11*60,    title:'Plenary: Closing the Skills Gap — Systems Change at Scale',  type:'plenary',    room:'Preston Auditorium', speaker:'Education GP · IFC · Youth Leaders',       desc:'What does it take to retool entire education and training systems? Case studies from countries moving fastest on skills reform.'},
+  {id:21, day:2, start:9*60+45,  end:11*60,    title:'Workshop: Building Tech Startups in Emerging Markets',       type:'workshop',   room:'Room MC2-800',       speaker:'IFC Ventures & WBG Tech Labs',             desc:'From idea validation to scaling — a startup-builder workshop for aspiring entrepreneurs in low- and middle-income countries.'},
+  {id:22, day:2, start:9*60+45,  end:11*60,    title:'Workshop: Mental Health & Burnout in the Future of Work',    type:'workshop',   room:'Room MC2-850',       speaker:'HSD & Global Health Team',                 desc:'How the pressures of gig work, digital overload, and economic precarity affect young workers — and what institutions can do.'},
+  {id:23, day:2, start:11*60,    end:11*60+15, title:'Break',                                                      type:'networking', room:'Main Atrium',        speaker:'',                                         desc:''},
+  {id:24, day:2, start:11*60+15, end:12*60+30, title:'Panel: Urban Youth & the Smart City Opportunity',            type:'panel',      room:'Preston Auditorium', speaker:'Urban Development & DRR Team',             desc:'How smart city infrastructure, digital public services, and urban tech ecosystems can unlock jobs for city-based youth.'},
+  {id:25, day:2, start:11*60+15, end:12*60+30, title:'Workshop: Agri-Tech & Youth Farming Enterprises',            type:'workshop',   room:'Room MC2-800',       speaker:'Agriculture & Food Global Practice',       desc:'Practical workshop on drones, mobile apps, digital marketplaces, and climate-smart practices for the next generation of farmers.'},
+  {id:26, day:2, start:11*60+15, end:12*60+30, title:'Workshop: Policy Advocacy for Digital Inclusion',            type:'workshop',   room:'Room MC2-850',       speaker:'Governance Global Practice',               desc:'How to influence telecoms regulation, digital ID policy, and connectivity investment — advocacy skills for young change-makers.'},
+  {id:27, day:2, start:12*60+30, end:13*60+30, title:'Networking Lunch & Youth Startup Marketplace',               type:'networking', room:'Atrium Café',        speaker:'',                                         desc:'Showcase of youth-led digital enterprises, agri-tech ventures, and social startups from across the globe.'},
+  {id:28, day:2, start:13*60+30, end:14*60+30, title:'Panel: Finance for Entrepreneurs — Closing the Capital Gap', type:'panel',      room:'Preston Auditorium', speaker:'IFC · SME Finance · Youth Founders',       desc:'Venture capital, impact investment, microfinance, and blended finance — how do young entrepreneurs actually access funding?'},
+  {id:29, day:2, start:13*60+30, end:14*60+30, title:'Workshop: Impact Measurement for Youth-Led Initiatives',     type:'workshop',   room:'Room MC2-800',       speaker:'IEG & DIME Teams',                         desc:'How to design and evaluate programmes for youth employment and entrepreneurship — practical tools for rigorous impact assessment.'},
+  {id:30, day:2, start:14*60+30, end:14*60+45, title:'Break',                                                      type:'networking', room:'Main Atrium',        speaker:'',                                         desc:''},
+  {id:31, day:2, start:14*60+45, end:15*60+45, title:'Youth Declarations: Presenting the FutureWorks Agenda',      type:'plenary',    room:'Preston Auditorium', speaker:'Youth Delegates',                          desc:'Youth delegates present the official 2026 Youth Summit Declaration — concrete commitments on jobs, skills, entrepreneurship, and agriculture — to WBG leadership.'},
+  {id:32, day:2, start:15*60+45, end:16*60+30, title:'Closing Ceremony & Commitment to Action',                    type:'keynote',    room:'Preston Auditorium', speaker:'WBG Leadership & Youth Champions',         desc:'Closing remarks, summit commitments, and celebration of the extraordinary youth leaders who shaped the FutureWorks agenda.'},
+  {id:33, day:2, start:16*60+30, end:18*60,    title:'Closing Reception',                                          type:'networking', room:'Atrium',             speaker:'',                                         desc:'Final celebration — connect with fellow delegates, exchange contacts, and plan the road ahead together.'},
 ];
 
-// UTC offset for Washington DC (ET = UTC-4 in June)
-const DC_OFFSET = -4;
-
-let currentDay = 1;
-let currentView = 'all';
+let currentDay = 1, currentView = 'all', currentOffset = -4;
 let myAgenda = new Set();
-let currentOffset = -4;
 
+// ── Time helpers ──
 function fmtMins(totalMins, offset) {
   let m = totalMins + (offset - DC_OFFSET) * 60;
-  let dayShift = 0;
-  if (m >= 1440) { m -= 1440; dayShift = 1; }
-  if (m < 0)     { m += 1440; dayShift = -1; }
-  const h = Math.floor(m / 60);
-  const mn = m % 60;
+  let ds = 0;
+  if (m >= 1440) { m -= 1440; ds = 1; }
+  if (m < 0)     { m += 1440; ds = -1; }
+  const h = Math.floor(m / 60), mn = m % 60;
   const ampm = h >= 12 ? 'pm' : 'am';
   const h12 = h % 12 === 0 ? 12 : h % 12;
-  const ds = dayShift === 1 ? ' (+1)' : dayShift === -1 ? ' (−1)' : '';
-  return `${h12}:${String(mn).padStart(2,'0')} ${ampm}${ds}`;
+  const tag = ds === 1 ? ' (+1)' : ds === -1 ? ' (−1)' : '';
+  return `${h12}:${String(mn).padStart(2,'0')} ${ampm}${tag}`;
 }
 
-function fmtRange(s, offset) {
-  return `${fmtMins(s.start, offset)} – ${fmtMins(s.end, offset)}`;
-}
+function fmtRange(s, offset) { return `${fmtMins(s.start, offset)} – ${fmtMins(s.end, offset)}`; }
 
 function utcStr(offset) {
   const sign = offset >= 0 ? '+' : '−';
-  const abs = Math.abs(offset);
-  const h = Math.floor(abs);
-  const m = (abs % 1) * 60;
+  const abs = Math.abs(offset), h = Math.floor(abs), m = (abs % 1) * 60;
   return m ? `UTC${sign}${h}:${String(m).padStart(2,'0')}` : `UTC${sign}${h}`;
 }
 
+// ── Calendar helpers ──
+function toUTCDate(calDate, minutesET) {
+  const [y, mo, d] = calDate.split('-').map(Number);
+  const totalUTCMins = minutesET + 4 * 60;
+  const utcDay = d + Math.floor(totalUTCMins / 1440);
+  const mins = ((totalUTCMins % 1440) + 1440) % 1440;
+  return new Date(Date.UTC(y, mo - 1, utcDay, Math.floor(mins / 60), mins % 60, 0));
+}
+
+function icsDateStr(dt) {
+  const p = n => String(n).padStart(2,'0');
+  return `${dt.getUTCFullYear()}${p(dt.getUTCMonth()+1)}${p(dt.getUTCDate())}T${p(dt.getUTCHours())}${p(dt.getUTCMinutes())}00Z`;
+}
+
+function sessionCalDate(s) { return s.day === 1 ? '2026-06-11' : '2026-06-12'; }
+
+function googleCalURL(s) {
+  const dtStart = toUTCDate(sessionCalDate(s), s.start);
+  const dtEnd   = toUTCDate(sessionCalDate(s), s.end);
+  const details = [s.desc, s.speaker ? `Speakers: ${s.speaker}` : '', '#FutureWorks #WBGYouthSummit2026'].filter(Boolean).join('\n');
+  const p = new URLSearchParams({
+    action: 'TEMPLATE',
+    text: `[WB Youth Summit 2026] ${s.title}`,
+    dates: `${icsDateStr(dtStart)}/${icsDateStr(dtEnd)}`,
+    details,
+    location: `${s.room ? s.room + ', ' : ''}World Bank HQ, 1818 H Street NW, Washington DC`,
+  });
+  return `https://calendar.google.com/calendar/render?${p}`;
+}
+
+function makeICSEvent(s) {
+  const dtStart = toUTCDate(sessionCalDate(s), s.start);
+  const dtEnd   = toUTCDate(sessionCalDate(s), s.end);
+  const desc = [s.desc, s.speaker ? `Speakers: ${s.speaker}` : '', '#FutureWorks #WBGYouthSummit2026'].filter(Boolean).join('\\n');
+  return [
+    'BEGIN:VEVENT',
+    `UID:wb-youth-summit-2026-${s.id}@worldbank.org`,
+    `DTSTAMP:${icsDateStr(new Date())}`,
+    `DTSTART:${icsDateStr(dtStart)}`,
+    `DTEND:${icsDateStr(dtEnd)}`,
+    `SUMMARY:[WB Youth Summit 2026] ${s.title}`,
+    `DESCRIPTION:${desc}`,
+    `LOCATION:${s.room ? s.room + ', ' : ''}World Bank HQ\\, 1818 H Street NW\\, Washington DC`,
+    'END:VEVENT'
+  ].join('\r\n');
+}
+
+function downloadICS() {
+  if (myAgenda.size === 0) { alert('Save some sessions first, then export!'); return; }
+  const saved = SESSIONS.filter(s => myAgenda.has(s.id));
+  const ics = [
+    'BEGIN:VCALENDAR',
+    'VERSION:2.0',
+    'PRODID:-//WBG Youth Summit 2026//FutureWorks//EN',
+    'CALSCALE:GREGORIAN',
+    'METHOD:PUBLISH',
+    'X-WR-CALNAME:WBG Youth Summit 2026 — My Agenda',
+    'X-WR-TIMEZONE:America/New_York',
+    ...saved.map(makeICSEvent),
+    'END:VCALENDAR'
+  ].join('\r\n');
+  const blob = new Blob([ics], { type: 'text/calendar;charset=utf-8' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a'); a.href = url; a.download = 'WBG_Youth_Summit_2026_MyAgenda.ics';
+  document.body.appendChild(a); a.click(); document.body.removeChild(a); URL.revokeObjectURL(url);
+}
+
+// ── State setters ──
 function setDay(d) {
   currentDay = d;
-  [1,2].forEach(i => {
-    const btn = document.getElementById('day-btn-'+i);
-    btn.className = 'pill' + (i === d ? ' active' : '');
-  });
+  [1,2].forEach(i => { document.getElementById('day-btn-'+i).className = 'pill' + (i===d ? ' active' : ''); });
   render();
 }
 
 function setView(v) {
   currentView = v;
-  document.getElementById('view-all').className = 'pill' + (v==='all' ? ' active' : '');
-  document.getElementById('view-mine').className = 'pill' + (v==='mine' ? ' active-amber' : '');
+  document.getElementById('view-all').className  = 'pill' + (v==='all'  ? ' active' : '');
+  document.getElementById('view-mine').className = 'pill' + (v==='mine' ? ' active-coral' : '');
   render();
 }
 
@@ -641,27 +669,23 @@ function updateTz() {
 }
 
 function toggleSession(id) {
-  if (myAgenda.has(id)) myAgenda.delete(id);
-  else myAgenda.add(id);
+  myAgenda.has(id) ? myAgenda.delete(id) : myAgenda.add(id);
   render();
 }
 
+// ── Render ──
 function render() {
   let list = SESSIONS.filter(s => s.day === currentDay);
   if (currentView === 'mine') list = list.filter(s => myAgenda.has(s.id));
 
-  // Group by start time
   const groups = {};
-  list.forEach(s => {
-    if (!groups[s.start]) groups[s.start] = [];
-    groups[s.start].push(s);
-  });
+  list.forEach(s => { if (!groups[s.start]) groups[s.start] = []; groups[s.start].push(s); });
   const sorted = Object.entries(groups).sort((a,b) => +a[0] - +b[0]);
 
   const grid = document.getElementById('schedule');
 
   if (sorted.length === 0) {
-    grid.innerHTML = `<div class="empty"><div class="empty-icon">📋</div><p>Tap sessions to build your personal agenda</p></div>`;
+    grid.innerHTML = `<div class="empty"><div class="empty-icon">📋</div><p>Tap any session to save it to <span>your agenda</span></p></div>`;
   } else {
     grid.innerHTML = sorted.map(([mins, items]) => `
       <div class="time-block">
@@ -674,7 +698,7 @@ function render() {
             <div class="session-card type-${s.type} ${myAgenda.has(s.id) ? 'saved' : ''}" onclick="toggleSession(${s.id})">
               <div class="card-check">
                 <svg class="check-svg" width="10" height="8" viewBox="0 0 10 8" fill="none">
-                  <path d="M1 4L3.5 6.5L9 1" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M1 4L3.5 6.5L9 1" stroke="#0a1628" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
               </div>
               <div class="card-body">
@@ -685,7 +709,22 @@ function render() {
                   ${s.room ? `<span class="card-room">${s.room}</span>` : ''}
                 </div>
                 ${s.speaker ? `<div class="card-speaker">${s.speaker}</div>` : ''}
-                ${s.desc ? `<div class="card-desc">${s.desc}</div>` : ''}
+                ${s.desc    ? `<div class="card-desc">${s.desc}</div>` : ''}
+                <div class="card-cal-btns" onclick="event.stopPropagation()">
+                  <a class="cal-btn cal-btn-google" href="${googleCalURL(s)}" target="_blank">
+                    <svg width="10" height="10" viewBox="0 0 24 24"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+                    Google
+                  </a>
+                  <button class="cal-btn cal-btn-apple" onclick="downloadSingleICS(${s.id})">
+                    <svg width="10" height="10" viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="18" rx="2" stroke="#00c9a7" stroke-width="2"/><path d="M16 2v4M8 2v4M3 10h18" stroke="#00c9a7" stroke-width="2" stroke-linecap="round"/></svg>
+                    Apple / iCal
+                  </button>
+                  <button class="cal-btn cal-btn-outlook" onclick="downloadSingleICS(${s.id})">
+                    <svg width="10" height="10" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="3" fill="#0078D4"/><path d="M7 8h10M7 12h6M7 16h8" stroke="white" stroke-width="1.8" stroke-linecap="round"/></svg>
+                    Outlook
+                  </button>
+                  <span class="cal-note">Times saved in ET (UTC-4)</span>
+                </div>
               </div>
             </div>
           `).join('')}
@@ -698,18 +737,44 @@ function render() {
   const total = myAgenda.size;
   const d1 = [...myAgenda].filter(id => SESSIONS.find(s=>s.id===id)?.day===1).length;
   const d2 = [...myAgenda].filter(id => SESSIONS.find(s=>s.id===id)?.day===2).length;
-  const types = {};
-  [...myAgenda].forEach(id => {
-    const s = SESSIONS.find(x=>x.id===id);
-    if (s) types[s.type] = (types[s.type]||0)+1;
-  });
 
   document.getElementById('summary-bar').innerHTML = `
-    <div class="agenda-chip"><strong>${total}</strong><span>Sessions saved</span></div>
-    <div class="agenda-chip"><strong>${d1}</strong><span>Day 1 sessions</span></div>
-    <div class="agenda-chip"><strong>${d2}</strong><span>Day 2 sessions</span></div>
-    <div class="agenda-chip"><strong>${utcStr(currentOffset)}</strong><span>Current timezone</span></div>
+    <div class="agenda-chip ${total>0?'has-data':''}"><strong>${total}</strong><span>Sessions saved</span></div>
+    <div class="agenda-chip ${d1>0?'has-data':''}"><strong>${d1}</strong><span>Day 1 · Jun 11</span></div>
+    <div class="agenda-chip ${d2>0?'has-data':''}"><strong>${d2}</strong><span>Day 2 · Jun 12</span></div>
+    <div class="agenda-chip has-data"><strong style="font-size:16px">${utcStr(currentOffset)}</strong><span>Your timezone</span></div>
   `;
+
+  // Export bar
+  const bar = document.getElementById('export-bar');
+  if (total > 0) {
+    bar.classList.add('visible');
+    // Build a multi-event Google Calendar URL (first 5 saved for the link, rest via .ics)
+    const firstSaved = SESSIONS.filter(s => myAgenda.has(s.id))[0];
+    if (firstSaved) document.getElementById('export-google').href = googleCalURL(firstSaved);
+  } else {
+    bar.classList.remove('visible');
+  }
+}
+
+function downloadSingleICS(id) {
+  const s = SESSIONS.find(x => x.id === id);
+  if (!s) return;
+  const ics = [
+    'BEGIN:VCALENDAR',
+    'VERSION:2.0',
+    'PRODID:-//WBG Youth Summit 2026//FutureWorks//EN',
+    'CALSCALE:GREGORIAN',
+    'METHOD:PUBLISH',
+    makeICSEvent(s),
+    'END:VCALENDAR'
+  ].join('\r\n');
+  const blob = new Blob([ics], { type: 'text/calendar;charset=utf-8' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = `WBG_YouthSummit2026_${s.title.replace(/[^a-z0-9]/gi,'_').slice(0,40)}.ics`;
+  document.body.appendChild(a); a.click(); document.body.removeChild(a); URL.revokeObjectURL(url);
 }
 
 render();
